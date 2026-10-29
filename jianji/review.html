@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#e8e8e8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>简记 · 核对记录</title>
+    <script type="module" crossorigin src="/jianji/assets/review-b3N1Q9yj.js"></script>
+    <link rel="modulepreload" crossorigin href="/jianji/assets/parser-DhHNoXrU.js">
+    <link rel="stylesheet" crossorigin href="/jianji/assets/review-CuPaLq8i.css">
+  <link rel="manifest" href="/jianji/manifest.webmanifest"></head>
+  <body>
+    <main class="review-shell">
+      <section class="review-sheet" aria-labelledby="review-title">
+        <header class="review-head">
+          <div>
+            <p class="review-kicker">简记 · OCR</p>
+            <h1 id="review-title">请确认识别结果</h1>
+          </div>
+          <span id="review-status" class="review-status">正在读取</span>
+        </header>
+
+        <form id="review-form" class="review-form" hidden>
+          <label class="review-row review-row-stack">
+            <span>商户</span>
+            <input id="merchant" autocomplete="off" />
+          </label>
+
+          <label class="review-row review-row-stack">
+            <span>分类</span>
+            <select id="category"></select>
+          </label>
+
+          <label class="review-row review-row-stack">
+            <span>金额</span>
+            <div class="amount-line"><small>CNY</small><input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" required /></div>
+          </label>
+
+          <label class="review-row">
+            <span>收支</span>
+            <select id="direction"><option value="expense">支出</option><option value="income">收入</option></select>
+          </label>
+
+          <label class="review-row review-row-stack">
+            <span>账户 / 支付方式</span>
+            <input id="source" autocomplete="off" />
+          </label>
+
+          <label class="review-row review-row-stack">
+            <span>备注</span>
+            <input id="note" autocomplete="off" placeholder="可选" />
+          </label>
+
+          <label class="review-row review-row-stack">
+            <span>时间</span>
+            <input id="occurred-at" type="datetime-local" required />
+          </label>
+
+          <button id="confirm" class="review-confirm" type="submit">确认记录</button>
+          <button id="skip" class="review-skip" type="button">跳过这条</button>
+          <p class="review-error" id="review-error" role="alert" hidden></p>
+        </form>
+
+        <div id="review-result" class="review-result" hidden>
+          <div class="review-result-icon">✓</div>
+          <h2 id="result-title">已记入简记</h2>
+          <p id="result-copy">打开简记即可查看。</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
