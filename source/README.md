@@ -1,18 +1,19 @@
 # 简记源码
 
-简记 0.3.0 的可审阅源码包位于：
+简记 0.3.1 的可审阅源码包：
 
-- [简记-源码-0.3.0.zip](./简记-源码-0.3.0.zip)
+- [简记-源码-0.3.1.zip](./简记-源码-0.3.1.zip)
 
-源码包包含：
+包含 React/TypeScript 页面、OCR 懒加载、PWA 配置、Supabase Schema、Muse Edge Function 和干净发布脚本。
 
-- React / TypeScript 页面和业务逻辑
-- OCR 懒加载与图像预处理
-- PWA 与 Service Worker 构建配置
-- Supabase 表结构、RLS、RPC 函数
-- Muse 单密钥 Edge Function
-- 清理旧 assets 的发布脚本
-- 产品与设计说明
+## Muse 权限
+
+- read：查询账目和分类
+- write：创建账目
+- update：修改 Muse 创建的账目
+- delete：删除 Muse 创建的账目
+
+手工账目不会被 Muse 修改或删除。
 
 ## 构建
 
@@ -22,12 +23,4 @@ npm run build
 npm run publish:pages -- --target C:\path\to\repo\jianji
 ```
 
-Tesseract wasm 和语言包体积较大，不重复放入源码包；构建前从部署目录的 `jianji/tesseract`、`jianji/tessdata` 复制到源码项目的 `public/`。
-
-## 部署约定
-
-`jianji/` 只保存编译产物。每次发布前由 `publish:pages` 清空并重建，避免旧 assets 和旧 Service Worker 文件持续堆积。
-
-## 版本
-
-- 0.3.0：分类合并修复、支付方式筛选、商家搜索、月度趋势、分类预算提醒、OCR 懒加载。
+Tesseract wasm 和语言包不重复放入源码包；构建前从部署目录的 `jianji/tesseract`、`jianji/tessdata` 复制到源码项目的 `public/`。
