@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#1d1e20" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="简记" />
+    <meta name="format-detection" content="telephone=no" />
     <title>简记 · 核对记录</title>
-    <script type="module" crossorigin src="/jianji/assets/review-BTtN3TIF.js"></script>
+    <script type="module" crossorigin src="/jianji/assets/review-fVA0YKRm.js"></script>
     <link rel="modulepreload" crossorigin href="/jianji/assets/parser-CamLEBMU.js">
-    <link rel="stylesheet" crossorigin href="/jianji/assets/review-BmyFyQ9i.css">
+    <link rel="stylesheet" crossorigin href="/jianji/assets/review-C9jgT0M0.css">
   <link rel="manifest" href="/jianji/manifest.webmanifest"></head>
   <body>
     <main class="review-shell">
@@ -19,51 +22,51 @@
             <h1 id="review-title">请确认识别结果</h1>
             <p class="review-hint">点击字段即可修改</p>
           </div>
-          <span id="review-status" class="review-status">正在读取</span>
+          <span id="review-status" class="review-status" role="status" aria-live="polite">正在读取</span>
         </header>
 
         <form id="review-form" class="review-form" hidden>
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 10.5 3H20v9.5L12.5 20 3 10.5Z"/><circle cx="16" cy="7" r="1"/></svg></span>
             <span class="review-label">分类</span>
-            <select id="category" aria-label="分类"></select>
+            <select id="category" name="category" aria-label="分类"></select>
           </label>
 
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
             <span class="review-label">商户</span>
-            <input id="merchant" autocomplete="off" aria-label="商户" />
+            <input id="merchant" name="merchant" autocomplete="off" aria-label="商户" />
           </label>
 
           <label class="review-line amount-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8h5.5a2.5 2.5 0 0 1 0 5H9m0 0h6m-6 0 4 4"/></svg></span>
             <span class="review-label">金额</span>
             <span class="currency-mark">CNY</span>
-            <input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" required aria-label="金额" />
+            <input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" name="amount" required aria-label="金额" />
           </label>
 
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7h10M7 12h10M7 17h6"/><path d="m16 4 3 3-3 3"/></svg></span>
             <span class="review-label">收支</span>
-            <select id="direction"><option value="expense">支出</option><option value="income">收入</option></select>
+            <select id="direction" name="direction"><option value="expense">支出</option><option value="income">收入</option></select>
           </label>
 
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h5"/></svg></span>
             <span class="review-label">账户</span>
-            <input id="source" autocomplete="off" aria-label="账户或支付方式" />
+            <input id="source" name="source" autocomplete="off" aria-label="账户或支付方式" />
           </label>
 
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
             <span class="review-label">备注</span>
-            <input id="note" autocomplete="off" placeholder="可选" aria-label="备注" />
+            <input id="note" name="note" autocomplete="off" placeholder="可选" aria-label="备注" />
           </label>
 
           <label class="review-line">
             <span class="review-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
             <span class="review-label">时间</span>
-            <input id="occurred-at" type="datetime-local" required aria-label="时间" />
+            <input id="occurred-at" type="datetime-local" name="occurred-at" required aria-label="时间" />
           </label>
 
           <button id="confirm" class="review-confirm" type="submit">
@@ -78,8 +81,8 @@
         </form>
 
         <div id="review-result" class="review-result" hidden>
-          <div class="review-result-icon">✓</div>
-          <h2 id="result-title">已记入简记</h2>
+          <div class="review-result-icon" aria-hidden="true">✓</div>
+          <h2 id="result-title" tabindex="-1">已记入简记</h2>
           <p id="result-copy">打开简记即可查看。</p>
         </div>
       </section>
