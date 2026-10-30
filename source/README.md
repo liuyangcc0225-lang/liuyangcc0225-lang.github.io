@@ -1,7 +1,8 @@
 # 简记源码
 
-简记 0.3.5 的可审阅源码包：
+简记 0.3.6 的可审阅源码包：
 
+- [简记-源码-0.3.6.zip](./简记-源码-0.3.6.zip)
 - [简记-源码-0.3.5.zip](./简记-源码-0.3.5.zip)
 - [简记-源码-0.3.4.zip](./简记-源码-0.3.4.zip)
 - [简记-源码-0.3.3.zip](./简记-源码-0.3.3.zip)
@@ -9,12 +10,12 @@
 - [简记-源码-0.3.1.zip](./简记-源码-0.3.1.zip)
 - [简记-源码-0.3.0.zip](./简记-源码-0.3.0.zip)
 
-0.3.5 新增 `muse-vision` 临时视觉解析接口和客户端连接入口。图片只在请求内存中转发给视觉供应商，不写入 Storage、数据库或相册。
+0.3.6 新增 `muse-ocr`，用 Apple 本地 OCR 文本自动解析和入账。截图不上传，不需要第三方视觉 API；低置信度和还款类截图进入核对。
 
 ## Muse 权限
 
 - read：查询账目和分类
-- write：创建账目、调用视觉解析
+- write：创建账目、调用 OCR/视觉解析
 - update：修改 Muse 创建的账目
 - delete：删除 Muse 创建的账目
 
@@ -28,4 +29,4 @@ npm run build
 npm run publish:pages -- --target C:\path\to\repo\jianji
 ```
 
-Tesseract wasm 和语言包不重复放入源码包；首次构建前从部署目录的 `jianji/tesseract`、`jianji/tessdata` 复制到源码项目的 `public/`。发布脚本会先带入并校验这些运行资源，再清空旧 `jianji/`。
+Tesseract wasm 和语言包不重复放入源码包；首次构建前从部署目录的 `jianji/tesseract`、`jianji/tessdata` 复制到源码项目的 `public/`。发布脚本会先带入并校验这些运行资源，再清空旧 `jianji/`，避免旧 assets 堆积。
